@@ -584,9 +584,12 @@ namespace Microsoft.Teams.Apps.FAQPlusPlus.Common.Cards
 
                     ThumbnailCard previewCard = new ThumbnailCard
                     {
-                        Title = $"<b>{HttpUtility.HtmlEncode(qnaDocument.Questions[0])}</b>",
-                        Subtitle = answer.Length <= TruncateAnswerLength ? HttpUtility.HtmlEncode(answer) : HttpUtility.HtmlEncode(answer.Substring(0, 45)) + "...",
-                        Text = string.IsNullOrEmpty(customMessage) ? HttpUtility.HtmlEncode(createdAt) : customMessage,
+                        Title ="Raghav",
+                        Subtitle = "raghav  ",
+                        Text = "raghav",
+                        //Title = $"<b>{HttpUtility.HtmlEncode(qnaDocument.Questions[0])}</b>",
+                        //Subtitle = answer.Length <= TruncateAnswerLength ? HttpUtility.HtmlEncode(answer) : HttpUtility.HtmlEncode(answer.Substring(0, 45)) + "...",
+                        //Text = string.IsNullOrEmpty(customMessage) ? HttpUtility.HtmlEncode(createdAt) : customMessage,
                     };
 
                     messagingExtensionAttachments.Add(new Attachment
