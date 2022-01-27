@@ -133,6 +133,7 @@ namespace Microsoft.Teams.Apps.FAQPlusPlus.Common.Helpers
 
                 var selectedTicketAdaptiveCard = new MessagingExtensionTicketsCard(ticket);
                 composeExtensionResult.Attachments.Add(selectedTicketAdaptiveCard.ToAttachment().ToMessagingExtensionAttachment(previewCard.ToAttachment()));
+               
             }
 
             return composeExtensionResult;
@@ -147,15 +148,20 @@ namespace Microsoft.Teams.Apps.FAQPlusPlus.Common.Helpers
         /// <returns>Command id as string.</returns>
         private static string GetPreviewCardText(TicketEntity ticket, string commandId, DateTimeOffset? localTimestamp)
         {
-            var ticketStatus = commandId != OpenCommandId ? $"<div style='white-space:nowrap'>{HttpUtility.HtmlEncode(Cards.CardHelper.GetTicketDisplayStatusForSme(ticket))}</div>" : string.Empty;
-            var cardText = $@"<div>
-                                <div style='white-space:nowrap'>
-                                        {HttpUtility.HtmlEncode(Cards.CardHelper.GetFormattedDateInUserTimeZone(ticket.DateCreated, localTimestamp))} 
-                                        | {HttpUtility.HtmlEncode(ticket.RequesterName)}
-                                </div> {ticketStatus}
-                         </div>";
 
-            return cardText.Trim();
+            var ticketStatus = "test";
+            var cardText = "ragav";
+
+            return cardText;
+            //var ticketStatus = commandId != OpenCommandId ? $"<div style='white-space:nowrap'>{HttpUtility.HtmlEncode(Cards.CardHelper.GetTicketDisplayStatusForSme(ticket))}</div>" : string.Empty;
+            //var cardText = $@"<div>
+            //                    <div style='white-space:nowrap'>
+            //                            {HttpUtility.HtmlEncode(Cards.CardHelper.GetFormattedDateInUserTimeZone(ticket.DateCreated, localTimestamp))} 
+            //                            | {HttpUtility.HtmlEncode(ticket.RequesterName)}
+            //                    </div> {ticketStatus}
+            //             </div>";
+
+            //return cardText.Trim();
         }
     }
 }

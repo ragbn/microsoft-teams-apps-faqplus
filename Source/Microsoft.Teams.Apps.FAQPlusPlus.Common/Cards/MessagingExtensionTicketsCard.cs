@@ -7,7 +7,6 @@ namespace Microsoft.Teams.Apps.FAQPlusPlus.Common.Cards
     using System;
     using System.Collections.Generic;
     using AdaptiveCards;
-    using Microsoft.Extensions.Logging;
     using Microsoft.Teams.Apps.FAQPlusPlus.Common.Models;
     using Microsoft.Teams.Apps.FAQPlusPlus.Common.Properties;
 
@@ -16,16 +15,13 @@ namespace Microsoft.Teams.Apps.FAQPlusPlus.Common.Cards
     /// </summary>
     public class MessagingExtensionTicketsCard : SmeTicketCard
     {
-
-        private readonly ILogger<MessagingExtensionTicketsCard> logger;
         /// <summary>
         /// Initializes a new instance of the <see cref="MessagingExtensionTicketsCard"/> class.
         /// </summary>
         /// <param name="ticket">The ticket model with the latest details.</param>
-        public MessagingExtensionTicketsCard(TicketEntity ticket, ILogger<MessagingExtensionTicketsCard> _logger)
+        public MessagingExtensionTicketsCard(TicketEntity ticket)
             : base(ticket)
         {
-            this.logger = _logger;
         }
 
         /// <summary>
@@ -47,8 +43,7 @@ namespace Microsoft.Teams.Apps.FAQPlusPlus.Common.Cards
                         Url = new Uri(CreateDeeplinkToThread(this.Ticket.SmeThreadConversationId)),
                     });
             }
-            Uri urls = new Uri(CreateDeeplinkToThread(this.Ticket.SmeThreadConversationId));
-            logger.LogInformation(urls.ToString());
+
             return actions;
         }
 
