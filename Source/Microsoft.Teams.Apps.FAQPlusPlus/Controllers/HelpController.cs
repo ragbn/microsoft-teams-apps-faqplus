@@ -3,6 +3,7 @@
 // </copyright>
 namespace Microsoft.Teams.Apps.FAQPlusPlus.Controllers
 {
+    extern alias adaptivelias;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Teams.Apps.FAQPlusPlus.Common.Models;
@@ -34,7 +35,7 @@ namespace Microsoft.Teams.Apps.FAQPlusPlus.Controllers
         {
             string helpTabText = await this.configurationProvider.GetSavedEntityDetailAsync(ConfigurationEntityTypes.HelpTabText).ConfigureAwait(false);    
 
-            var marked = new Microsoft.MarkedNet.Marked();
+            var marked = new adaptivelias::Microsoft.MarkedNet.Marked();
             var helpTabHtml = marked.Parse(helpTabText);
 
             return this.View(nameof(this.Index), helpTabHtml);
